@@ -8,4 +8,4 @@ A simple todo app based on reflux
 
 ##### 在浏览器打开
 
-[](http://localhost:3000/)
+[http://localhost:3000/](http://localhost:3000/)
