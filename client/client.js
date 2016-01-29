@@ -1,17 +1,17 @@
-require('es5-shim/es5-shim');
-require('es5-shim/es5-sham');
+var React = require('react');
+var ReactDOM = require('react-dom');
 
-var React = require('react/addons');
 var CommentBox = React.createClass({
   render: function() {
-    return (
+    return(
       <div>
         Hello, world! I am a CommentBox.
       </div>
     );
   }
 });
-React.render(
+
+ReactDOM.render(
   <CommentBox />,
   document.getElementById('app')
 );
