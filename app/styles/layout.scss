@@ -1,0 +1,56 @@
+html,body,div,label,input,a{padding:0;margin:0;}
+
+$line-height: 30px;
+$height:30px;
+$fontSize: 15px;
+@mixin todo-row {
+    border-radius:10px;
+    padding:5px 20px;
+    height:$height;
+}
+
+@mixin button {
+    width:100px;
+    height:30px;
+    color:#333;
+    border:1px solid #dcdcdc;
+}
+
+@mixin dinlineblock {
+    display:inline-block;
+}
+.todo-container{
+    background:#ebffef;
+    padding:20px;
+}
+.add-new{
+    background:#4e8858;
+    @include todo-row;
+}
+.todo-list li{
+    position:relative;
+    background:#fff;
+    @include todo-row;
+
+    .row input[type='checkbox']{
+        @include dinlineblock;
+        width:20px;
+        height:20px;
+        border-radius:1px;
+        margin-right:50px;
+    }
+    .row .text{
+        @include dinlineblock;
+    }
+    .row input[type='button']{
+        @include dinlineblock;
+        @include button;
+    }
+    .todo-edit{
+        position:absolute;
+        left:0;
+        top:0;
+        line-height:$line-height;
+        font-size:$fontSize;
+    }
+}

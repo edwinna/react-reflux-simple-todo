@@ -1,0 +1,42 @@
+html, body, div, label, input, a {
+  padding: 0;
+  margin: 0; }
+
+.todo-container {
+  background: #ebffef;
+  padding: 20px; }
+
+.add-new {
+  background: #4e8858;
+  border-radius: 10px;
+  padding: 5px 20px;
+  height: 30px; }
+
+.todo-list li {
+  position: relative;
+  background: #fff;
+  border-radius: 10px;
+  padding: 5px 20px;
+  height: 30px; }
+  .todo-list li .row input[type='checkbox'] {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 1px;
+    margin-right: 50px; }
+  .todo-list li .row .text {
+    display: inline-block; }
+  .todo-list li .row input[type='button'] {
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    color: #333;
+    border: 1px solid #dcdcdc; }
+  .todo-list li .todo-edit {
+    position: absolute;
+    left: 0;
+    top: 0;
+    line-height: 30px;
+    font-size: 15px; }
+
+/*# sourceMappingURL=layou.css.map */
