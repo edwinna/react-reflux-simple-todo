@@ -20,7 +20,6 @@ li, ul {
   height: 25px;
   margin: 5px 10px;
   border: none;
-  outline: none;
   background: transparent; }
 
 .add-new input[placeholder], [placeholder], *[placeholder] {
@@ -44,6 +43,8 @@ li, ul {
     -webkit-appearance: none;
     border: 1px solid #ccc;
     vertical-align: middle; }
+  .todo-list li .row .text {
+    display: inline-block; }
   .todo-list li .row input[type='button'] {
     display: inline-block;
     width: 80px;
@@ -56,28 +57,11 @@ li, ul {
     border-radius: 3px; }
   .todo-list li .todo-edit {
     position: absolute;
-    top: 0;
     left: 0;
+    top: 0;
     line-height: 30px;
     font-size: 15px;
     border: none;
-    background: transparent;
-    margin-left: 50px;
-    margin-top: 4px;
-    outline: none;
-    display: inline-block;
-    max-width: 300px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    min-width: 120px;
-    opacity: .1; }
-  .todo-list li .row .label {
-    display: inline-block;
-    max-width: 300px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    min-width: 120px; }
+    background: transparent; }
 
-/*# sourceMappingURL=layou.css.map */
+/*# sourceMappingURL=layout.css.map */

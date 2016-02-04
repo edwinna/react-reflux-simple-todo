@@ -1,13 +1,17 @@
 var React = require('react');
+var LinkedStateMixin = require('react-addons-linked-state-mixin');
+// var React = require('react/dist/react-width-addons');
 var TodoActions = require('../actions/TodoActions');
 var TodoItem = React.createClass({
     propTypes: {
         completed:React.PropTypes.bool.isRequired,
-        text: React.PropTypes.string.isRequired,
+        label: React.PropTypes.string.isRequired,
         id: React.PropTypes.number.isRequired
     },
+    mixins: [LinkedStateMixin],
     getInitialState:function(){
-        return{}
+        return{
+        }
     },
     //点击删除
     toggleChange: function(){
@@ -33,7 +37,7 @@ var TodoItem = React.createClass({
         e.preventDefault();
         this.setState({
             isEditing: true,
-            editValue: this.props.text
+            editValue: this.props.label
         },function(){
             this.refs.editInput.getDOMNode().focus();
         });
@@ -48,17 +52,17 @@ var TodoItem = React.createClass({
     },
     handleDestroy: function(e){
         e.preventDefault();
-        TodoActions.removeItem(this.prop.id);
+        TodoActions.removeItem(this.props.id);
     },
     render: function(){
         return(
             <li className="todo-item">
                 <div className="row" id={this.props.id}>
                     <input type="checkbox" checked={!!this.props.completed} onChange={this.toggleChange}/>
-                    <label class="text" onDoubleClick={this.handleEditClick}>{this.props.text}</label>
+                    <label className="label">{this.props.label}</label>
                     <input type="button" value="Delete" onClick={this.handleDestroy} />
                 </div>
-                <input ref="editInput" className="todo-edit" type="text" valueLink={this.linkState('editValue')} onBlur={handleBlur} onKeyUp={handleKeyUp} />
+                <input onDoubleClick={this.handleEditClick} ref="editInput" className="todo-edit" type="text" onBlur={this.handleBlur} onKeyUp={this.handleKeyUp} valueLink={this.linkState('editValue')}  />
             </li>
         )
     }

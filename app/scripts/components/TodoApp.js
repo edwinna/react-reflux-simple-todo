@@ -1,29 +1,35 @@
 var React = require('react');
+var ReactRouter = require('react-router');
 var TodoItem = require('./TodoItem');
 var TodoActions = require('../actions/TodoActions');
 
 var TodoApp = React.createClass({
+    mixins: [ReactRouter.States],
+    propTypes: {
+        list: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+    },
     getInitialState: function(){
         return{
             editValue: ""
         }
     },
-    addNewItem: function(e){
-        e.preventDefault();
-        TodoActions.addNewItem(this.state.editValue);
+    addNewItem: function(event){
+        event.preventDefault();
+        if(event.which == 13){
+            var input = this.refs.newInput.getDOMNode();
+            TodoActions.addNewItem(input.value);
+            input.value = "";
+        }
     },
     render: function(){
         var _todolist = this.props.list;
-        // _todolist = _todolist.filter(function(item){
-        //     return item.completed != 1;
-        // });
-        var itemList = _todolist.map(function(item){
-            return <TodoItem text={item.text} completed={item.completed} id={item.id}> </TodoItem>;
+        var itemList =_todolist.map(function(item,index){
+            return <TodoItem label={item.label} completed={item.completed} id={item.id} key={index}> </TodoItem>;
         });
         return(
             <section>
                 <div className="add-new">
-                    <input type="text" placeholder="添加任务" onKeyUp={this.addNewItem} valueLink={this.linkState('editValue')}/>
+                    <input ref="newInput" type="text" placeholder="add a new task" onKeyUp={this.addNewItem}/>
                 </div>
                 <ul className="todo-list">
                     {itemList}
