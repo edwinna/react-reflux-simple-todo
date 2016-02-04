@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "prestart": "npm run-script build",
-    "build": "gulp jsx",
-    "start": "node ./bin/www"
+    "build": "gulp",
+    "start": "supervisor ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
@@ -32,6 +32,10 @@
     "gulp-load-plugins": "~1.2.0",
     "react-tools": "~0.13.3",
     "react-dom": "~0.14.7",
-    "vinyl-buffer": "~1.0.0"
+    "vinyl-buffer": "~1.0.0",
+    "react-router": "~0.13.2",
+    "gulp-sass": "~2.1.1",
+    "gulp-minify-css":"~1.2.3",
+    "react-addons-linked-state-mixin": "~0.14.7"
   }
 }
